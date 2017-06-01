@@ -29,7 +29,7 @@ The goal of the thesis was to quicken the setup of a network of nodes to study h
 We implement the program in Python for its general ease and use and abstraction. In the interest of speed and minimizing communication overhead, a shared memory approach was chosen to pass messages between the different threads that represented individual nodes. For the nodes themselves we use [Raspberry pi’s](https://www.raspberrypi.org/) with a 150 Mbps wireless USB network adapter [TL-WN727N](http://www.tp-link.com/us/download/TL-WN727N.html).
 
 ## Previous Work
-In order to further improve the setup time of iterative algorithms, there has been quite a lot of work in the research community. A system [6] to simulate a theoretical network of nodes to study how an algorithm behaves was developed. Real-world constraints like network delay and faulty nodes were not a concern for said project. Therefore, to be more real-world friendly we build upon this idea by configuring a testbed and testing different topological scenarios. As far as consensus (and average consensus) problems go, it has received extensive notice from the research community. The applicability to topics such as modeling of flocking behavior in biological, multi-agent systems, and physical systems [1], [2] makes it an extensively researched topic.  
+In order to further improve the setup time of iterative algorithms, there has been quite a lot of work in the research community. A system [6]() to simulate a theoretical network of nodes to study how an algorithm behaves was developed. Real-world constraints like network delay and faulty nodes were not a concern for said project. Therefore, to be more real-world friendly we build upon this idea by configuring a testbed and testing different topological scenarios. As far as consensus (and average consensus) problems go, it has received extensive notice from the research community. The applicability to topics such as modeling of flocking behavior in biological, multi-agent systems, and physical systems [1](), [2]() makes it an extensively researched topic.  
 
 ## Implementation
 
@@ -40,3 +40,9 @@ In this thesis I implement the algorithm described in [5] to test out the framew
 Figure 2 shows the sub files present in each of the node and the host. We split up the implementation on the node side into 3 files. Neighbor_list.txt contains the neighbor list of each node. Comm_socket.py consists of the socket programming and node communication methods and finally Iterative_algo.py consists of the iterative algorithm we are implementing. On the host side, we have two files Upload.py uploads the files remotely to the nodes and compiles them inline. Run.py sends the start signal to begin the algorithm.
 
 ![Code_components](Documentation/Code_components.jpg)
+
+### Neighbour_list.txt
+
+This file consists basis for the ring based routing algorithm to work. Essentially, this file governs which neighbors to talk to and which neighbors to listen to. In Figure 3, we have the list for node with IP address 192.168.12.1. There is an oddity in the fact that the node itself appears in both categories, but this is due to the specificities of the algorithm [5] we are implementing.
+
+
