@@ -13,9 +13,9 @@ I would like to thank all those people who have provided their valuable time and
   - [Send/Receive.txt](#sendreceivetxt)
   - [Comm_socket.py](#comm_socketpy)
   - [Iterative_algo.py](#iterative_algopy)
-  - [Upload.py](##uploadpy)
-  - [Run.py](##runpy)
-  - [Testbed](##testbed)
+  - [Upload.py](#uploadpy)
+  - [Run.py](#runpy)
+  - [Testbed](#testbed)
 - [Conclusion](#conclusion)  
 - [References](#references)
   
