@@ -10,12 +10,12 @@ I would like to thank all those people who have provided their valuable time and
 - [Introduction](#introduction)
 - [Previous Work](#previous-work)
 - [Implementation](#implementation)
-  - [Send/Receive.txt](#send/receive.txt)
-  - [Comm_socket.py](#Comm_socket)
-  - [Iterative_algo.py](#iterative_algo)
-  - [Upload.py](#upload)
-  - [Run.py](#run)
-  - [Testbed](#Testbed)
+  -- [Send/Receive.txt](#send/receive)
+  -- [Comm_socket.py](#Comm_socket)
+  -- [Iterative_algo.py](#iterative_algo)
+  -- [Upload.py](#upload)
+  -- [Run.py](#run)
+  -- [Testbed](#Testbed)
 - [Conclusion](#conclusion)  
 - [Installation and Configuration](#installation-and-configuration)
 - [References](#references)
@@ -62,7 +62,7 @@ This file contains most of the abstractions we have built in the framework. It c
 
 ### Iterative_algo.py
 
-This file consists of the bulk of the algorithm code to be implemented. This would be the file that the user modifies to implement the core functionality of the iterative steps in the algorithm. Figure 5 shows implementation of the algorithm stated in [5](#five).   broadcastReceive(port) is the function through which data is received by a node broadcastSend(port) is the function that calculates the new ‘node value’ by applying some function (i.e. average in our implementation ‘line 74&75’) on the initial values and transmits this value to other nodes. We also specify how many number of rounds the algorithm should run for in this function.
+This file consists of the bulk of the algorithm code to be implemented. This would be the file that the user modifies to implement the core functionality of the iterative steps in the algorithm. Figure 5 shows implementation of the algorithm stated in [\[5\]](#five).   broadcastReceive(port) is the function through which data is received by a node broadcastSend(port) is the function that calculates the new ‘node value’ by applying some function (i.e. average in our implementation ‘line 74&75’) on the initial values and transmits this value to other nodes. We also specify how many number of rounds the algorithm should run for in this function.
 
 ### Upload.py
 
