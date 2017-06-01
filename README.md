@@ -33,7 +33,7 @@ In order to further improve the setup time of iterative algorithms, there has be
 
 ## Implementation
 
-In this thesis I implement the algorithm described in [5] to test out the framework. As described in there, the algorithm helps to address the problem of achieving average consensus over lossy links. By average consensus, we mean to say that each node will end up with a value which is the average of the all the initial node values. By lossy links, we mean that communication channels between the nodes might be prone to packet loss. We achieve this lossy communication by using broadcast. In Figure 1, we can see the general topology of the testbed. The arrows represent the direction of communication; i.e. a recipient arrow means that a node can only receive information along those channels. Thus, we can see that every node can only send/receive information to/from one other adjacent neighbor node. Each node also receives data from the host. Thus, we simulate topological constraints through this cyclic nature of communication, thereby implementing a ring based routing system between the Raspberry pi’s using a neighbor list. 
+In this thesis I implement the algorithm described in [5]() to test out the framework. As described in there, the algorithm helps to address the problem of achieving average consensus over lossy links. By average consensus, we mean to say that each node will end up with a value which is the average of the all the initial node values. By lossy links, we mean that communication channels between the nodes might be prone to packet loss. We achieve this lossy communication by using broadcast. In Figure 1, we can see the general topology of the testbed. The arrows represent the direction of communication; i.e. a recipient arrow means that a node can only receive information along those channels. Thus, we can see that every node can only send/receive information to/from one other adjacent neighbor node. Each node also receives data from the host. Thus, we simulate topological constraints through this cyclic nature of communication, thereby implementing a ring based routing system between the Raspberry pi’s using a neighbor list. 
 
 ![High_level_network_topology](Documentation/High_level_network_topology.jpg)
 
@@ -43,6 +43,15 @@ Figure 2 shows the sub files present in each of the node and the host. We split 
 
 ### Neighbour_list.txt
 
-This file consists basis for the ring based routing algorithm to work. Essentially, this file governs which neighbors to talk to and which neighbors to listen to. In Figure 3, we have the list for node with IP address 192.168.12.1. There is an oddity in the fact that the node itself appears in both categories, but this is due to the specificities of the algorithm [5] we are implementing.
+This file consists basis for the ring based routing algorithm to work. Essentially, this file governs which neighbors to talk to and which neighbors to listen to. In Figure 3, we have the list for node with IP address 192.168.12.1. There is an oddity in the fact that the node itself appears in both categories, but this is due to the specificities of the algorithm [5]() we are implementing.
+```
+192.168.12.1
+192.168.12.2
+192.168.12.3
+```
 
-
+```
+192.168.12.1
+192.168.12.5
+```
+In our setup we utilize a ring based network topology. However, since we have a dedicated file to specify whom to receive/send from, in theory any network topology can be obtained by changing the corresponding IP addresses in this file. For example, if I want to recreate a bus topology we would use the host as the common line of communication between the nodes and each node can only send/receive from the host. 
