@@ -10,15 +10,15 @@ I would like to thank all those people who have provided their valuable time and
 - [Introduction](#introduction)
 - [Previous Work](#previous-work)
 - [Implementation](#implementation)
-  -[Send/Receive.txt](#send/receive)
-  -[Comm_socket.py](#Comm_socket)
-  -[Iterative_algo.py](#iterative_algo)
-  -[Upload.py](#upload)
-  -[Run.py](#run)
-  -[Testbed](#Testbed)
+  - [Send/Receive.txt](#Send/Receive.txt)
+  - [Comm_socket.py](#Comm_socket.py)
+  - [Iterative_algo.py](#Iterative_algo.py)
+  - [Upload.py](#Upload.py)
+  - [Run.py](#Run.py)
+  - [Testbed](#Testbed)
 - [Conclusion](#conclusion)  
 - [References](#references)
-
+  
 ## Introduction
 
 In the research area of distributed systems, most of the time, algorithms are specifically developed to determine the behavior of a node - an independent unit that processes work - within a network of such nodes. These nodes are only aware of properties pertaining to itself and its neighbors. Each node has the ability to communicate with its neighbors through some form of message passing system (i.e. broadcast or unicast). Therefore, consider a set of interconnected nodes with some initial value such that after running the algorithm for several rounds, they all are left with the same value. Algorithms that execute certain blocks of code repeatedly are called iterative algorithms.  Also consensus is defined as when each node possessing an initial value, follows a distributed strategy to agree on the same value by calculating some function of these initial values. In this thesis we use iterative algorithms to obtain average consensus among the nodes. The purpose of this project is to build and study the behavior of these algorithms, such as those described in [\[1\]](#one)[\[2\]](#two)[\[3\]](#three)[\[4\]](#four)[\[5\]](#five).
@@ -67,9 +67,10 @@ This file consists of the bulk of the algorithm code to be implemented. This wou
 
 While developing one of the major obstacles encountered was to update the recent version of the code on the different nodes in the network. This process can become very tedious indeed because manually removing the SD-card and updating the recent versions on the Raspberry pi’s is not the most optimized solution of doing it. Therefore Upload.py helps us to do this remotely from the host computer. Because Python does not need to compiled before it runs, we send an in-command line statement to run the file. Thereby this greatly reduces the development time and helps achieve quick code revisions on all nodes.
 
-### Upload.py
+### Run.py
 
-While developing one of the major obstacles encountered was to update the recent version of the code on the different nodes in the network. This process can become very tedious indeed because manually removing the SD-card and updating the recent versions on the Raspberry pi’s is not the most optimized solution of doing it. Therefore Upload.py helps us to do this remotely from the host computer. Because Python does not need to compiled before it runs, we send an in-command line statement to run the file. Thereby this greatly reduces the development time and helps achieve quick code revisions on all nodes.
+The second of the host files, Figure 7. Run.py is used to remotely activate the algorithm on the testbed. Due to the iterative nature of the algorithms, it is a necessity that all of the nodes begin the execution of the code at roughly the same time so as to not miss a round of computation. During the development process we observed that it was very hard to get this timing right, it was practically impossible to do so when we have more than 3 nodes. Therefore, in order to get around this obstacle, the nodes now await a execution signal from the host before starting the algorithm. Run.py sends this execution signal across broadband to all the nodes on the port (8888 in our case).
+
 
 ### Testbed
 
